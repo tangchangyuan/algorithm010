@@ -43,15 +43,13 @@ class Node {
 **需要熟练的代码2:**
 ```text     
 //双指针左右边界
-int i = 0;
-int j = arr.length - 1;
-for (i, j; i < j) {
-    int minHeight = arr[j] < arr[i] ? arr[j] : arr[i];
-    j--;
-    i++;
-    int width = j - i + 1;
-    max = Math.max(max, width * minHeight);
-}
+//        int max = 0;
+//        for (int i = 0, j = height.length - 1; i < j; ) {
+//            int minHeight = height[i] < height[j] ? height[i++] :height[j--];
+//            max = Math.max(max, minHeight * j - i - 1);
+//
+//        }
+//        return max;
 ```
 
 **解法问题:**
