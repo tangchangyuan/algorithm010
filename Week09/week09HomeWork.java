@@ -48,24 +48,25 @@ public class week09HomeWork {
      * @param obstacleGrid
      * @return
      */
-    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+    public static int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int n = obstacleGrid.length, m = obstacleGrid[0].length;
-        int[] f = new int[m];
+        int[] dp = new int[m];
 
-        f[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
+        // 定义初始值 降维
+        dp[0] = obstacleGrid[0][0] == 0 ? 1 : 0;
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
-                if (obstacleGrid[i][j] == 1) {
-                    f[j] = 0;
+                if (obstacleGrid[i][j] == 1) {  //障碍物
+                    dp[j] = 0;
                     continue;
                 }
                 if (j - 1 >= 0 && obstacleGrid[i][j - 1] == 0) {
-                    f[j] += f[j - 1];
+                    dp[j] += dp[j - 1];
                 }
             }
         }
 
-        return f[m - 1];
+        return dp[m - 1];
     }
 
 
